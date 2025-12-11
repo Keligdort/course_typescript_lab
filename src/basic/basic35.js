@@ -3,6 +3,10 @@
 */
 
 export function diagonalSum(matrix) {
-	let sum = 0;
-	return sum;
+    let sum = 0;
+    const n = matrix.length;
+    for (let i = 0; i < n; i++) {
+        sum += matrix[i][i];
+    }
+    return sum;
 }
