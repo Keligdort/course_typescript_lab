@@ -4,6 +4,14 @@
 */
 
 export function count_vowels(s) {
-	return 0;
+  const vowels = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
+  let count = 0;
+  let index = 0;
+  while (index < s.length) {
+    if (vowels.includes(s[index].toLowerCase())) {
+      count++;
+    }
+    index++;
+  }
+  return count;
 }
-
