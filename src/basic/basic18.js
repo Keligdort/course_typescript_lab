@@ -3,6 +3,16 @@
 */
 
 export function second_largest(arr) {
-  return null;
+  let max = null;
+  let secondMax = null;
+  for (let i = 0; i < arr.length; i++) {
+    const current = arr[i];
+    if (max === null || current > max) {
+      secondMax = max;
+      max = current;
+    } else if (current !== max && (secondMax === null || current > secondMax)) {
+      secondMax = current;
+    }
+  }
+  return secondMax;
 }
-
