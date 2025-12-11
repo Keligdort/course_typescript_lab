@@ -3,7 +3,10 @@
 */
 
 export function all(arr, callback) {
-
-	return true;
+    for (let i = 0; i < arr.length; i++) {
+        if (!callback(arr[i])) {
+            return false;
+        }
+    }
+    return true;
 }
-
