@@ -3,5 +3,11 @@
 */
 
 export function rotateArrayLeft(arr) {
-  return arr;
+    if (arr.length <= 1) {
+    return arr;
+  }
+  const result = [...arr];
+  const firstElement = result.shift();
+  result.push(firstElement);
+  return result;
 }
