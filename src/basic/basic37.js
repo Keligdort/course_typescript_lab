@@ -3,8 +3,9 @@
 */
 
 export function map(arr, f) {
-
-  return arr;
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(f(arr[i]));
+    }
+    return result;
 }
-
-
