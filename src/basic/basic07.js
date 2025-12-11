@@ -3,5 +3,11 @@
 */
 
 export function factorial(n){
-  return n;
+  if (n === 0) return 1;
+  let result = 1, i = 1;
+  while (i <= n) {
+    result *= i;
+    i++;
+  }
+  return result;
 }
