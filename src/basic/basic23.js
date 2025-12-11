@@ -4,6 +4,15 @@
 	const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
 */
 
+
 export function strip_special_chars(text) {
-	return "";
+  const allowed = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ';
+  let result = '';
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (allowed.includes(char)) {
+      result += char;
+    }
+  }
+  return result;
 }
