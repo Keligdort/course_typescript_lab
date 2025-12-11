@@ -4,5 +4,18 @@
 */
 
 export function capitalize_words(sentence) {
-	return "";
+  const words = sentence.split(" ");
+  const capitalizedWords = [];
+  for (let i = 0; i < words.length; i++) {
+    const word = words[i];
+    if (word.length === 0) {
+      capitalizedWords.push(word);
+      continue;
+    }
+    const firstChar = word[0].toUpperCase();
+    const restChars = word.slice(1).toLowerCase();
+    const capitalizedWord = firstChar + restChars;
+    capitalizedWords.push(capitalizedWord);
+  }
+  return capitalizedWords.join(" ");
 }
