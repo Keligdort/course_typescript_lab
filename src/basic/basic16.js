@@ -3,6 +3,11 @@
 */
 
 export function reverse_list(arr) {
-    return arr;
+  const reversedArr = new Array(arr.length);
+  let i = 0;
+  while (i < arr.length) {
+    reversedArr[i] = arr[arr.length - 1 - i];
+    i++;
+  }
+  return reversedArr;
 }
-
