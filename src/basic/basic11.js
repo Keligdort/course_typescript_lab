@@ -3,7 +3,11 @@
 */
 
 export function is_prime(n) {
-	return true;
+  if (n < 2) return false;
+  let divisor = 2;
+  while (divisor < n) {
+    if (n % divisor === 0) return false;
+    divisor++;
+  }
+  return true;
 }
-
-
