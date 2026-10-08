@@ -4,10 +4,11 @@
 */
 
 export function filter(arr, f) {
-
-	return arr;
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (f(arr[i])) {
+            result.push(arr[i]);
+        }
+    }
+    return result;
 }
-
-
-
-
