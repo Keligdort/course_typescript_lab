@@ -3,8 +3,8 @@
 */
 
 export function calculate_discount(price, discount) {
-  return "Ошибка! Процент скидки слишком большой.";
+  if (discount > 100) {
+    return "Ошибка! Процент скидки слишком большой.";
+  }
+  return parseFloat((price * (1 - discount / 100)).toFixed(2));
 }
-
-
-
