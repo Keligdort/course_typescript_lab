@@ -9,10 +9,9 @@ export class Account {
   }
 }
 
-
 export class PremiumAccount extends Account {
   override withdraw(amount: number): void {
-    
+    super.withdraw(amount);
     console.log(`Premium withdrawal: ${amount}`);
   }
 }
