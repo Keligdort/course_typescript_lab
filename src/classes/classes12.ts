@@ -28,7 +28,6 @@ export class Pair<T> {
   }
 
   public swap(): void {
-    
+      [this.first, this.second] = [this.second, this.first];
   }
 }
-
