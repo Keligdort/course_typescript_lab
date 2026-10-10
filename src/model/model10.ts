@@ -12,7 +12,6 @@ export abstract class Animal {
   abstract makeSound(): void;
 }
 
-
 export class Cat extends Animal {
   constructor(name: string) {
     super(`Cat ${name}`);
@@ -21,5 +20,4 @@ export class Cat extends Animal {
   makeSound(): void {
     console.log("Meow!");
   }
-  
 }
