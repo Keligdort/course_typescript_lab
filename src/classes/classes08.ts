@@ -3,13 +3,13 @@
 */
 
 export class Animal {
-  
+  static animalCount: number = 0;
   name: string;
   species: string;
   constructor(name: string, species: string) {
     this.name = name;
     this.species = species;
-    
+    Animal.animalCount++;
   }
   greet() {
     console.log(
@@ -17,8 +17,6 @@ export class Animal {
     );
   }
   static getAnimalCount() {
-    
+    return Animal.animalCount;
   }
 }
-
-
