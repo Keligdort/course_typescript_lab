@@ -7,6 +7,10 @@ export class Point {
     constructor(x: number, y: number);   // Конструктор с двумя числами
     constructor(coords: [number, number]);       // Конструктор с массивом чисел
     constructor(...args: any[]) {
-		
+        if (Array.isArray(args[0])) {
+            this.coords = args[0];
+        } else {
+            this.coords = [args[0], args[1]];
+        }
     }
 }
