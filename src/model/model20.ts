@@ -13,14 +13,15 @@ export function Serializable<TBase extends new (...args: any[]) => any>(Base: TB
 export function Validatable<TBase extends new (...args: any[]) => any>(Base: TBase) {
   return class extends Base {
     validate(): boolean {
-      return true;
+      return Object.values(this.fields).every(
+        (value) => value !== null && value !== undefined && value !== ""
+      );
     }
   };
 }
 
- 
 export class FormData {
-  fields: any = {};
+  fields: Record<string, any> = {};
 }
 
-export const EnhancedFormData 
+export const EnhancedFormData = Serializable(Validatable(FormData));
