@@ -19,6 +19,7 @@ type Figure = {
 export class Square implements Figure {
   point1: Point;
   point2: Point;
+
   constructor(point1: Point, point2: Point) {
     if (point1.x > point2.x || point1.y > point2.y) {
       throw new Error("point1 must be the bottom-left corner of the square");
@@ -26,10 +27,19 @@ export class Square implements Figure {
     this.point1 = point1;
     this.point2 = point2;
   }
-  moveTo(point: Point) {
-	
-  }
-  getMaxX() {
 
+  moveTo(point: Point) {
+    const dx = point.x - this.point1.x;
+    const dy = point.y - this.point1.y;
+
+    this.point1.x += dx;
+    this.point1.y += dy;
+
+    this.point2.x += dx;
+    this.point2.y += dy;
+  }
+
+  getMaxX(): number {
+    return this.point2.x;
   }
 }
