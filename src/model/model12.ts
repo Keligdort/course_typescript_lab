@@ -5,8 +5,11 @@
 export abstract class MathOperations {
   static pi: number = 3.14159265359;
   
-  abstract calculate(): number;
+  static square(num: number): number {
+    return num * num;
+  }
 
+  abstract calculate(): number;
 }
 
 
@@ -17,5 +20,8 @@ export class CircleArea extends MathOperations {
     super();
     this.radius = radius;
   }
-  
+
+  calculate(): number {
+    return MathOperations.pi * MathOperations.square(this.radius);
+  }
 }
