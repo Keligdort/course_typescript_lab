@@ -4,21 +4,16 @@
 
 
 
-export function Timestamped<TBase extends new (...args: any[]) => any>(Base: TBase) {
+export function Loggable<TBase extends new (...args: any[]) => any>(Base: TBase) {
   return class extends Base {
-    timestamp: Date;
-
-    constructor(...args: any[]) {
-      super(...args);
-      this.timestamp = new Date();
-    }
-
-    getTimestamp(): string {
-      return this.timestamp.toISOString();
+    log(message: string): void {
+      console.log(`[LOG]: ${message}`);
     }
   };
 }
 
-export class Document {
-  content: string = "";
+export class User {
+  name: string = '';
 }
+
+export const LoggableUser = Loggable(User);
