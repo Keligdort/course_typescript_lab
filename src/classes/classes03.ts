@@ -12,9 +12,11 @@ class Person {
 }
 
 export class Student {
-	person: Person;
-	group: string;
-	constructor(name: string, age: number, group: string) {
-
-	}
+  person: Person;
+  group: string;
+  constructor(name: string, age: number, group: string) {
+    this.group = group;
+    this.person = new Person(name, age);
+  }
 }
+
