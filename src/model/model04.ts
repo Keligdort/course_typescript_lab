@@ -8,7 +8,9 @@ export class Shape {
   }
 }
 
-
 export class Circle extends Shape {
-
+  draw(): void {
+    super.draw();
+    console.log("Drawing circle");
+  }
 }
