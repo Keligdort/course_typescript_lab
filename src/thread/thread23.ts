@@ -12,5 +12,8 @@ interface AppError {
 
 export const parseNumberWithDetailedError = (input: string): Result<number, AppError> => {
 	return parseNumber(input)
-	// Ваш код здесь (3-5 строк)
+		.mapErr((error) => ({
+			code: 400,
+			message: `Parse error: ${error}`
+		}));
 }
