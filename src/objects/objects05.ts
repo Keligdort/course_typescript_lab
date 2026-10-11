@@ -6,7 +6,7 @@ export type User = {
   name: string;
   age: number;
   role: string[];
-  copy: (name?: string, age?: number, role?: string[]) => User
+  copy: (name?: string, age?: number, role?: string[]) => User;
 };
 
 export const user: User = {
@@ -14,7 +14,11 @@ export const user: User = {
   age: 30,
   role: ["admin", "user"],
   copy(name?: string, age?: number, role?: string[]): User {
-    return this;
-
+    return {
+      ...this,
+      name: name ?? this.name,
+      age: age ?? this.age,
+      role: role ? [...role] : [...this.role],
+    };
   },
 };
