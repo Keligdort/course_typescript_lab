@@ -4,5 +4,6 @@
 
 export function safeDivide(a: number, b: number): number | null {
   // Ваш код здесь (3-4 строки)
+  if (b === 0) return null;
   return a / b;
 }
