@@ -5,13 +5,17 @@
 export type User = {
   name: string;
   age: number;
-  copy: (name?: string, age?: number) => User
+  copy: (name?: string, age?: number) => User;
 };
 
 export const user: User = {
   name: "John",
   age: 30,
   copy(name?: string, age?: number) {
-	return this
+    return {
+      ...this,
+      name: name ?? this.name,
+      age: age ?? this.age,
+    };
   },
 };
