@@ -3,10 +3,10 @@
 */
 
 export type Comparable = {
-	greaterThan: (other: Comparable) => boolean
+	greaterThan: (other: Comparable) => boolean;
 }
 
 export function maxOf<T extends Comparable>(a: T[]): T {
-	return a[0];
+	return a.reduce((max, current) => (current.greaterThan(max) ? current : max));
 	
 }
