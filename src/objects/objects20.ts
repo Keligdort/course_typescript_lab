@@ -3,7 +3,8 @@
 */
 
 export function fromArrays<T, K extends string>(keys: K[], values: T[]): Record<K, T> {
-	const result: any = {};
-	return result;
+  return keys.reduce((acc, key, index) => {
+    acc[key] = values[index];
+    return acc;
+  }, {} as Record<K, T>);
 }
-
