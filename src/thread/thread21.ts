@@ -7,6 +7,8 @@ import { parseNumber } from './thread20'
 
 export const parsePositiveNumber = (input: string): Result<number, string> => {
   return parseNumber(input)
-	// Ваш код здесь (3-5 строк)
+    .andThen(num => {
+      if (num > 0) return parseNumber(input); 
+      return parseNumber("invalid").mapErr(() => "Number must be positive");
+    });
 }
-
