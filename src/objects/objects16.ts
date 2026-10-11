@@ -3,10 +3,12 @@
 */
 
 export function addToCollection<T, K extends string>(
-    obj: Record<K, T[]>,
-    collectionName: K,
-    element: T
+  obj: Record<K, T[]>,
+  collectionName: K,
+  element: T
 ): Record<K, T[]> {
-    return obj;
+  return {
+    ...obj,
+    [collectionName]: [...obj[collectionName], element],
+  };
 }
-
