@@ -6,9 +6,13 @@ export async function withRetry<T>(
   operation: () => Promise<T>,
   maxAttempts: number = 3
 ): Promise<T> {
-  let lastError: Error;
-  // Ваш код здесь (8-10 строк)
-  // Попытаться выполнить операцию maxAttempts раз
-  // Если все попытки неудачны, бросить последнюю ошибку
+  let lastError: any;
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      return await operation();
+    } catch (error) {
+      lastError = error;
+    }
+  }
   throw lastError;
 }
