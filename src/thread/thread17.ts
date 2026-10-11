@@ -4,6 +4,14 @@
 
 import { fetchUser, type User } from "./promises";
 
-export function fetchUserWithRetry(id: number, maxAttempts = 3): Promise<User> {
-  // TODO: Реализовать retry механизм
+export async function fetchUserWithRetry(id: number, maxAttempts = 3): Promise<User> {
+  let lastError: any;
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      return await fetchUser(id);
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw lastError;
 }
