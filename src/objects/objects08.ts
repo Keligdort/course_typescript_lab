@@ -3,9 +3,9 @@
 */
 
 export type Summable = {
-	sum: (other: Summable) => Summable
-}
+  sum: (other: Summable) => Summable;
+};
 
 export function sum<T extends Summable>(a: T[]): T {
-	return a[0];
+  return a.reduce((acc, current) => acc.sum(current) as T);
 }
