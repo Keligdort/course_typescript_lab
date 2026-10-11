@@ -3,8 +3,11 @@
 */
 
 export const product = {
-    price: 100,
-    withTaxRate(rate: number) {
-        return this;
-    }
+  price: 100,
+  withTaxRate(rate: number) {
+    return {
+      ...this,
+      taxAmount: this.price * rate
+    };
+  }
 };
