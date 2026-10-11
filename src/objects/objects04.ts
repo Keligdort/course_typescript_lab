@@ -15,14 +15,14 @@ export type User = {
   equal: (other: User) => boolean;
 };
 
-const address = {
+const address: Address = {
   street: "Main Street",
   building: 123,
   equal(other: Address) {
-	return (
-		this.street === other.street &&
-		this.building === other.building
-	);
+    return (
+      this.street === other.street &&
+      this.building === other.building
+    );
   },
 };
 
@@ -31,6 +31,10 @@ export const user: User = {
   age: 30,
   address: address,
   equal(other: User) {
-	  return true;
+    return (
+      this.name === other.name &&
+      this.age === other.age &&
+      this.address.equal(other.address)
+    );
   },
 };
