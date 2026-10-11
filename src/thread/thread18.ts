@@ -4,6 +4,10 @@
 
 import { fetchUser, fetchUserData, type User } from "./promises";
 
-export function getUserWithFallback(id: number): Promise<User> {
-  // TODO: Реализовать fallback механизм
+export async function getUserWithFallback(id: number): Promise<User> {
+  try {
+    return await fetchUser(id);
+  } catch (error) {
+    return await fetchUserData(id);
+  }
 }
