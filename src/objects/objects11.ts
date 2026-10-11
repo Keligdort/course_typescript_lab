@@ -3,13 +3,13 @@
 */
 
 const calculator = {
-    previousValue: 0,
-    add(value: number) {
-        return this.previousValue += value;
-    }
+  previousValue: 0,
+  add(value: number) {
+    return this.previousValue += value;
+  }
 };
 
 export function add(value: number) {
-	const adder = calculator.add;
-	return adder(value); 	
+  const adder = calculator.add.bind(calculator);
+  return adder(value); 	
 }
